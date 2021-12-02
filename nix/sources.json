@@ -1,0 +1,38 @@
+{
+    "niv": {
+        "branch": "master",
+        "description": "Easy dependency management for Nix projects",
+        "homepage": "https://github.com/nmattia/niv",
+        "owner": "nmattia",
+        "repo": "niv",
+        "rev": "5830a4dd348d77e39a0f3c4c762ff2663b602d4c",
+        "sha256": "1d3lsrqvci4qz2hwjrcnd8h5vfkg8aypq3sjd4g3izbc8frwz5sm",
+        "type": "tarball",
+        "url": "https://github.com/nmattia/niv/archive/5830a4dd348d77e39a0f3c4c762ff2663b602d4c.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "nixos-unstable",
+        "description": "Nix Packages collection",
+        "homepage": "",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "6daa4a5c045d40e6eae60a3b6e427e8700f1c07f",
+        "sha256": "1wg55jlxyvbjvm8x2rcirmvqws4y8xq504dn3yjp05m1bajhpj5r",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/6daa4a5c045d40e6eae60a3b6e427e8700f1c07f.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "pre-commit-hooks.nix": {
+        "branch": "master",
+        "description": "Seamless integration of https://pre-commit.com git hooks with Nix.",
+        "homepage": "",
+        "owner": "cachix",
+        "repo": "pre-commit-hooks.nix",
+        "rev": "c3b4f94350b0e59c2546fa85890cc70d03616b9c",
+        "sha256": "1x90b2m8kzxzslfssvnaq9s1m0n9rxqw41qhz298gnv4nvahcr0f",
+        "type": "tarball",
+        "url": "https://github.com/cachix/pre-commit-hooks.nix/archive/c3b4f94350b0e59c2546fa85890cc70d03616b9c.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}

@@ -1,0 +1,11 @@
+/data/
+TAGS
+/dist-newstyle
+.ghc.environment.*
+.warn
+cabal.project.local*
+/.dir-locals.el
+/dist
+cabal.project.local
+.hoogle
+.pre-commit-config.yaml
