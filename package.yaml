@@ -26,7 +26,6 @@ default-extensions:
   - RankNTypes
   - RecordWildCards
   - NamedFieldPuns
-  - TemplateHaskell
   - TupleSections
   - TypeFamilies
   - CPP

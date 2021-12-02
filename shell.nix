@@ -1,5 +1,6 @@
 with (import ./. { });
 let
+  hls-nix = (import sources.hls-nix { }).haskell-language-server;
   pre-commit-hooks = import sources."pre-commit-hooks.nix";
   pre-commit-config = {
     src = ./.;
@@ -26,7 +27,14 @@ in haskellPkgs.shellFor {
 
   doBenchmark = true;
 
-  nativeBuildInputs = with pkgs; [ cabal-install ghcid hlint hpack ormolu ];
+  nativeBuildInputs = with pkgs; [
+    cabal-install
+    ghcid
+    hlint
+    hpack
+    ormolu
+    hls-nix
+  ];
 
   shellHook = ''
     { ${pre-commit-check.shellHook} } 2> /dev/null

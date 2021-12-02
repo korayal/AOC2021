@@ -38,7 +38,6 @@ library
       RankNTypes
       RecordWildCards
       NamedFieldPuns
-      TemplateHaskell
       TupleSections
       TypeFamilies
       CPP

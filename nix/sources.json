@@ -1,4 +1,16 @@
 {
+    "hls-nix": {
+        "branch": "ghc-8107-hls-151",
+        "description": null,
+        "homepage": null,
+        "owner": "korayal",
+        "repo": "hls-nix",
+        "rev": "b68a1ad24e9f35964179adf31513ca81966a91d7",
+        "sha256": "0arb4lf65mrclcrlkk7ksynidszfw8cw4rnyj5m943qrq2yzn898",
+        "type": "tarball",
+        "url": "https://github.com/korayal/hls-nix/archive/b68a1ad24e9f35964179adf31513ca81966a91d7.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",
