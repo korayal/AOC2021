@@ -38,6 +38,9 @@ default-extensions:
   - TypeInType
   - InstanceSigs
   - DeriveFunctor
+  - LambdaCase
+  - MultiWayIf
+  - DerivingStrategies
 
 dependencies:
   - base

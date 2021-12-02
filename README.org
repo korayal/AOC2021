@@ -1,1 +1,5 @@
 * AOC2021
+
+After running ~nix-shell~ run ~ghcid~ and update ~ghcid.script~ file and your code!
+
+PS. comment out ~hls-nix~ in ~shell.nix~ if you do not need **haskell-language-server**

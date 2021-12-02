@@ -1,41 +1,39 @@
 module AOC2021.Day01 where
 
-import Data.List (zipWith3)
-import Relude
-
+import AOC2021.Prelude
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
+import Control.Lens
 
-answer01 :: [Integer] -> Int
-answer01 input = count - 1
+data State
+  = State_Decreased
+  | State_Increased
+  | State_Unchanged
+  deriving stock (Eq)
+
+answer1Pure :: [Int] -> Int
+answer1Pure input = count - 1
   where
-    count = length $ filter ((== "increased") . snd) zipped
+    count = length $ filter ((== State_Increased) . snd) zipped
     zipped = zipWith comp input (0:input)
     comp x y = case compare x y of
-      LT -> (y, "decreased" :: String)
-      EQ -> (y, "unchanged")
-      GT -> (y, "increased")
+      LT -> (y, State_Decreased)
+      EQ -> (y, State_Unchanged)
+      GT -> (y, State_Increased)
 
-answer02 :: [Integer] -> Int
-answer02 input = answer01 sumsOfThrees
+answer2Pure :: [Int] -> Int
+answer2Pure input = answer1Pure sumsOfThrees
   where
     sumsOfThrees = case input of
-      (x:y:z:zs) -> zipWith3 (\x y z -> x + y + z) input (y:z:zs) (z:zs)
+      (x:y:z:zs) -> zipWith3 (\a b c -> a + b + c) input (y:z:zs) (z:zs)
       _ -> error  "invalid set"
 
-readInputDay1 :: IO [Integer]
-readInputDay1 = T.readFile "/tmp/day1a.txt" <&> mapMaybe (readMaybe . T.unpack) . lines
+readInput :: IO [Int]
+readInput = readLineInput "data/day1.txt" (readMaybe . T.unpack)
 
-sampleInput :: [Integer]
-sampleInput =
-      [ 199 :: Integer,
-        200,
-        208,
-        210,
-        200,
-        207,
-        240,
-        269,
-        260,
-        263
-      ]
+result :: IO ()
+result = do
+  putStrLn "DAY 1"
+  input <- readInput
+  mapM_ print $ do
+    map ($ input) [answer1Pure, answer2Pure]
