@@ -18,6 +18,7 @@ library
   exposed-modules:
       AOC2021.Day01
       AOC2021.Day02
+      AOC2021.DayXXX
       AOC2021.Prelude
   other-modules:
       Paths_aoc2021

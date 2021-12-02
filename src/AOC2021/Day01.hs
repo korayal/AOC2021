@@ -1,9 +1,13 @@
 module AOC2021.Day01 where
 
+--------------------------------------------------------------------------------
+
 import AOC2021.Prelude
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 import Control.Lens
+
+--------------------------------------------------------------------------------
 
 data State
   = State_Decreased
@@ -11,6 +15,7 @@ data State
   | State_Unchanged
   deriving stock (Eq)
 
+--------------------------------------------------------------------------------
 answer1Pure :: [Int] -> Int
 answer1Pure input = count - 1
   where
@@ -21,13 +26,15 @@ answer1Pure input = count - 1
       EQ -> (y, State_Unchanged)
       GT -> (y, State_Increased)
 
+--------------------------------------------------------------------------------
 answer2Pure :: [Int] -> Int
 answer2Pure input = answer1Pure sumsOfThrees
   where
     sumsOfThrees = case input of
       (x:y:z:zs) -> zipWith3 (\a b c -> a + b + c) input (y:z:zs) (z:zs)
-      _ -> error  "invalid set"
+      _ -> error  "invalid input"
 
+--------------------------------------------------------------------------------
 readInput :: IO [Int]
 readInput = readLineInput "data/day1.txt" (readMaybe . T.unpack)
 

@@ -1,8 +1,11 @@
 module AOC2021.Day02 where
 
+--------------------------------------------------------------------------------
+
 import AOC2021.Prelude
 import qualified Data.Text as T
 
+--------------------------------------------------------------------------------
 data Position = Position
   { horizontal :: Int,
     depth :: Int,
@@ -13,6 +16,7 @@ data Position = Position
 initialPosition :: Position
 initialPosition = Position 0 0 0
 
+--------------------------------------------------------------------------------
 data Command
   = Command_Forward Int
   | Command_Down Int
@@ -25,6 +29,7 @@ commandText ('d' : 'o' : 'w' : 'n' : ' ' : t) = Command_Down <$> readMaybe t
 commandText ('u' : 'p' : ' ' : t) = Command_Up <$> readMaybe t
 commandText _ = Nothing
 
+--------------------------------------------------------------------------------
 moveSub :: Position -> Command -> Position
 moveSub p@Position {..} = \case
   Command_Forward m -> p {horizontal = horizontal + m}
@@ -40,12 +45,15 @@ moveSub2 p@Position {..} = \case
 mulPosition :: Position -> Int
 mulPosition Position {..} = horizontal * depth
 
+--------------------------------------------------------------------------------
 answer1Pure :: [Command] -> Int
 answer1Pure = mulPosition . foldl' moveSub initialPosition
 
+--------------------------------------------------------------------------------
 answer2Pure :: [Command] -> Int
 answer2Pure = mulPosition . foldl' moveSub2 initialPosition
 
+--------------------------------------------------------------------------------
 readInput :: IO [Command]
 readInput = readLineInput "data/day2.txt" (commandText . T.unpack)
 
