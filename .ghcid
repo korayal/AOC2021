@@ -1,1 +1,1 @@
--a --command "cabal repl lib:aoc2021" --reload=ghcid.script --test ":script ghcid.script"
+-a --command "cabal repl lib:aoc2021" --reload=ghcid.ghci --test ":script ghcid.ghci" -W
