@@ -43,22 +43,25 @@ default-extensions:
   - DerivingStrategies
 
 dependencies:
+  - attoparsec
   - base
-  - relude
-  - text
-  - lens
-  - unordered-containers
-  - conduit
-  - bytestring
-  - mono-traversable
-  - containers
-  - directory
-  - time
-  - random
-  - binary
-  - memory
   - base16-bytestring
   - base64-bytestring
+  - binary
+  - bytestring
+  - conduit
+  - containers
+  - directory
+  - lens
+  - matrix
+  - memory
+  - mono-traversable
+  - random
+  - relude
+  - text
+  - time
+  - unordered-containers
+  - vector
 
 library:
   source-dirs: src

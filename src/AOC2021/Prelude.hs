@@ -6,6 +6,7 @@ module AOC2021.Prelude
 --------------------------------------------------------------------------------
 
 import Relude as X
+import Data.MonoTraversable as X (headMay)
 import Data.List as X (zipWith3)
 import qualified Data.Text.IO as T
 

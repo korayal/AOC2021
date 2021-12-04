@@ -19,6 +19,7 @@ library
       AOC2021.Day01
       AOC2021.Day02
       AOC2021.Day03
+      AOC2021.Day04
       AOC2021.DayXXX
       AOC2021.Prelude
   other-modules:
@@ -58,7 +59,8 @@ library
       DerivingStrategies
   ghc-options: -fwarn-redundant-constraints -Wincomplete-record-updates
   build-depends:
-      base
+      attoparsec
+    , base
     , base16-bytestring
     , base64-bytestring
     , binary
@@ -67,6 +69,7 @@ library
     , containers
     , directory
     , lens
+    , matrix
     , memory
     , mono-traversable
     , random
@@ -74,4 +77,5 @@ library
     , text
     , time
     , unordered-containers
+    , vector
   default-language: Haskell2010
