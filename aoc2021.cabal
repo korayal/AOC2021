@@ -20,6 +20,7 @@ library
       AOC2021.Day02
       AOC2021.Day03
       AOC2021.Day04
+      AOC2021.Day05
       AOC2021.DayXXX
       AOC2021.Prelude
   other-modules:
@@ -57,7 +58,7 @@ library
       LambdaCase
       MultiWayIf
       DerivingStrategies
-  ghc-options: -fwarn-redundant-constraints -Wincomplete-record-updates
+  ghc-options: -Wall
   build-depends:
       attoparsec
     , base
@@ -72,6 +73,7 @@ library
     , matrix
     , memory
     , mono-traversable
+    , monoid-extras
     , random
     , relude
     , text

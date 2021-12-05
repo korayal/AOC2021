@@ -55,7 +55,7 @@ answer2Pure = mulPosition . foldl' moveSub2 initialPosition
 
 --------------------------------------------------------------------------------
 readInput :: IO [Command]
-readInput = readLineInput "data/day2.txt" (commandText . T.unpack)
+readInput = readLineInput "data/day02.txt" (commandText . T.unpack)
 
 result :: IO ()
 result = do

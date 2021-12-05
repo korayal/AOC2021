@@ -8,7 +8,7 @@ maintainer: admin@koray.al
 extra-source-files:
   - README.org
 
-ghc-options: -fwarn-redundant-constraints -Wincomplete-record-updates
+ghc-options: -Wall
 
 default-extensions:
   - DeriveDataTypeable
@@ -56,6 +56,7 @@ dependencies:
   - matrix
   - memory
   - mono-traversable
+  - monoid-extras
   - random
   - relude
   - text

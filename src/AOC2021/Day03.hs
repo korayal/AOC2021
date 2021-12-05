@@ -2,14 +2,11 @@ module AOC2021.Day03 where
 
 --------------------------------------------------------------------------------
 
-import Data.MonoTraversable (headMay)
-import Data.Sequences (tailMay)
-import Text.Printf
-import Numeric (showIntAtBase)
 import AOC2021.Prelude
-import qualified Data.Text as T
 import Data.Bits
-import Data.Char (digitToInt, intToDigit)
+import Data.Char (digitToInt)
+import Data.Sequences (tailMay)
+import qualified Data.Text as T
 
 --------------------------------------------------------------------------------
 inputDataText :: String -> Maybe String
@@ -36,7 +33,7 @@ favorLower x =
 calcRate :: Char -> [String] -> [Int]
 calcRate favChar =
   foldl' calcBits (repeat 0)
-  . fmap (map incrementScore)
+    . fmap (map incrementScore)
   where
     calcBits a b = zipWith (+) (a :: [Int]) (b :: [Int])
     incrementScore c = if c == favChar then 1 else -1
@@ -44,9 +41,10 @@ calcRate favChar =
 answer1Pure :: [String] -> Int
 answer1Pure i = case headMay i of
   Nothing -> error "wat?"
-  Just t -> let gr = toDec (map favorHigher (calcRate '1' i))
-                mask = (2 ^ length t) - 1
-            in gr * (mask .&. complement gr)
+  Just t ->
+    let gr = toDec (map favorHigher (calcRate '1' i))
+        mask = (2 ^ length t) - 1
+     in gr * (mask .&. complement gr)
 
 --------------------------------------------------------------------------------
 calcGasRating :: Char -> (Int -> Char) -> [String] -> String
@@ -55,23 +53,24 @@ calcGasRating favChar favorFunc i = filterVals
     hop = map favorFunc (calcRate favChar i)
     filterVals = case uncons hop of
       Nothing -> error "wat1"
-      Just (x, xs) ->
+      Just (x, _) ->
         let filtered = mapMaybe tailMay $ filter ((==) (Just x) . headMay) i
-        in case filtered of
-          [] -> error "wat2"
-          [y] -> x : y
-          _ -> x : calcGasRating favChar favorFunc filtered
+         in case filtered of
+              [] -> error "wat2"
+              [y] -> x : y
+              _ -> x : calcGasRating favChar favorFunc filtered
 
 answer2Pure :: [String] -> Int
 answer2Pure input = case headMay input of
   Nothing -> error "wat?"
-  Just t -> let o2 = toDec (calcGasRating '1' favorHigher input)
-                co2 = toDec (calcGasRating '0' favorLower input)
-            in o2 * co2
+  Just _ ->
+    let o2 = toDec (calcGasRating '1' favorHigher input)
+        co2 = toDec (calcGasRating '0' favorLower input)
+     in o2 * co2
 
 --------------------------------------------------------------------------------
 readInput :: IO [String]
-readInput = readLineInput "data/day3.txt" (inputDataText . T.unpack)
+readInput = readLineInput "data/day03.txt" (inputDataText . T.unpack)
 
 result :: IO ()
 result = do

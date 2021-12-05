@@ -1,4 +1,5 @@
 {-# OPTIONS_GHC -fno-warn-deprecations #-}
+
 module AOC2021.DayXXX where
 
 --------------------------------------------------------------------------------

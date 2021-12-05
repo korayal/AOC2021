@@ -4,8 +4,6 @@ module AOC2021.Day01 where
 
 import AOC2021.Prelude
 import qualified Data.Text as T
-import qualified Data.Text.IO as T
-import Control.Lens
 
 --------------------------------------------------------------------------------
 
@@ -20,7 +18,7 @@ answer1Pure :: [Int] -> Int
 answer1Pure input = count - 1
   where
     count = length $ filter ((== State_Increased) . snd) zipped
-    zipped = zipWith comp input (0:input)
+    zipped = zipWith comp input (0 : input)
     comp x y = case compare x y of
       LT -> (y, State_Decreased)
       EQ -> (y, State_Unchanged)
@@ -31,12 +29,12 @@ answer2Pure :: [Int] -> Int
 answer2Pure input = answer1Pure sumsOfThrees
   where
     sumsOfThrees = case input of
-      (x:y:z:zs) -> zipWith3 (\a b c -> a + b + c) input (y:z:zs) (z:zs)
-      _ -> error  "invalid input"
+      (_ : y : z : zs) -> zipWith3 (\a b c -> a + b + c) input (y : z : zs) (z : zs)
+      _ -> error "invalid input"
 
 --------------------------------------------------------------------------------
 readInput :: IO [Int]
-readInput = readLineInput "data/day1.txt" (readMaybe . T.unpack)
+readInput = readLineInput "data/day01.txt" (readMaybe . T.unpack)
 
 result :: IO ()
 result = do
