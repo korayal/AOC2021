@@ -21,6 +21,7 @@ library
       AOC2021.Day03
       AOC2021.Day04
       AOC2021.Day05
+      AOC2021.Day06
       AOC2021.DayXXX
       AOC2021.Prelude
   other-modules:
@@ -58,7 +59,7 @@ library
       LambdaCase
       MultiWayIf
       DerivingStrategies
-  ghc-options: -Wall
+  ghc-options: -Wall -threaded
   build-depends:
       attoparsec
     , base
@@ -69,6 +70,7 @@ library
     , conduit
     , containers
     , directory
+    , dlist
     , lens
     , matrix
     , memory

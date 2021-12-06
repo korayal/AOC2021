@@ -8,7 +8,7 @@ maintainer: admin@koray.al
 extra-source-files:
   - README.org
 
-ghc-options: -Wall
+ghc-options: -Wall -threaded
 
 default-extensions:
   - DeriveDataTypeable
@@ -52,6 +52,7 @@ dependencies:
   - conduit
   - containers
   - directory
+  - dlist
   - lens
   - matrix
   - memory
