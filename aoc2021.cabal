@@ -22,6 +22,7 @@ library
       AOC2021.Day04
       AOC2021.Day05
       AOC2021.Day06
+      AOC2021.Day07
       AOC2021.DayXXX
       AOC2021.Prelude
   other-modules:
