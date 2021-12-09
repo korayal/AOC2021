@@ -49,6 +49,7 @@ dependencies:
   - base64-bytestring
   - binary
   - bytestring
+  - bytestring-trie
   - conduit
   - containers
   - directory

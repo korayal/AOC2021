@@ -1,6 +1,6 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.34.5.
 --
 -- see: https://github.com/sol/hpack
 
@@ -23,6 +23,7 @@ library
       AOC2021.Day05
       AOC2021.Day06
       AOC2021.Day07
+      AOC2021.Day08
       AOC2021.DayXXX
       AOC2021.Prelude
   other-modules:
@@ -68,6 +69,7 @@ library
     , base64-bytestring
     , binary
     , bytestring
+    , bytestring-trie
     , conduit
     , containers
     , directory
