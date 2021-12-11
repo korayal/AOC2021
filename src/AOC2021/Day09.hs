@@ -12,7 +12,7 @@ import qualified Data.Text.IO as T
 
 --------------------------------------------------------------------------------
 traceShow' :: Show a => a -> b -> b
-traceShow' a b = b
+traceShow' _a b = b
 
 --------------------------------------------------------------------------------
 data Pos = Pos {pX :: Int, pY :: Int}
