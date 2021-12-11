@@ -54,6 +54,7 @@ dependencies:
   - containers
   - directory
   - dlist
+  - errors
   - lens
   - matrix
   - memory

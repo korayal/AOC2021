@@ -24,6 +24,7 @@ library
       AOC2021.Day06
       AOC2021.Day07
       AOC2021.Day08
+      AOC2021.Day09
       AOC2021.DayXXX
       AOC2021.Prelude
   other-modules:
@@ -74,6 +75,7 @@ library
     , containers
     , directory
     , dlist
+    , errors
     , lens
     , matrix
     , memory
