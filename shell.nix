@@ -5,11 +5,13 @@ let
   pre-commit-config = {
     src = ./.;
     tools = pkgs;
+    settings = { hpack = { silent = true; }; };
     hooks = {
       yamllint.enable = true;
+      hpack.enable = true;
       nixfmt = {
         enable = true;
-        excludes = [ "nix/default.nix" ];
+        excludes = [ "nix/sources.nix" ];
       };
     };
   };

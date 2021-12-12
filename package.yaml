@@ -1,7 +1,7 @@
 ---
 name: aoc2021
 version: 0.0.0.0
-synopsis: Tools for managing bigquery datasets.
+synopsis: My own AOC 2021 solutions
 description: Please see README.org
 homepage: https://github.com/korayal/AOC2021
 maintainer: admin@koray.al

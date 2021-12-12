@@ -7,5 +7,6 @@ cabal.project.local*
 /.dir-locals.el
 /dist
 cabal.project.local
+*.cabal
 .hoogle
 .pre-commit-config.yaml
