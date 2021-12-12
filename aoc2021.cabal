@@ -26,6 +26,7 @@ library
       AOC2021.Day08
       AOC2021.Day09
       AOC2021.Day10
+      AOC2021.Day11
       AOC2021.DayXXX
       AOC2021.Prelude
   other-modules:
@@ -79,6 +80,7 @@ library
     , errors
     , lens
     , matrix
+    , matrix-lens
     , memory
     , mono-traversable
     , monoid-extras

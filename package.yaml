@@ -57,6 +57,7 @@ dependencies:
   - errors
   - lens
   - matrix
+  - matrix-lens
   - memory
   - mono-traversable
   - monoid-extras

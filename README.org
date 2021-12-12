@@ -1,5 +1,11 @@
 * AOC2021
 
+Use my cachix cache to not rebuild hls-nix from scratch (which takes too long):
+#+begin_src bash
+nix-env -iA cachix -f https://cachix.org/api/v1/install
+cachix use korayal-hls
+#+end_src
+
 After running ~nix-shell~ run ~ghcid~ and update ~ghcid.script~ file and your code!
 
 PS. comment out ~hls-nix~ in ~shell.nix~ if you do not need **haskell-language-server**

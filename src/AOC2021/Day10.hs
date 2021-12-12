@@ -66,7 +66,7 @@ scoreChar _ = 0
 scoreCResult :: CResult -> Int
 scoreCResult CResult_Complete = 0
 scoreCResult (CResult_Incomplete _) = 0
-scoreCResult (CResult_Corrupted (x :| xs)) = scoreChar x
+scoreCResult (CResult_Corrupted (x :| _)) = scoreChar x
 
 answer1Pure :: [String] -> Int
 answer1Pure =

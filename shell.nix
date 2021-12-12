@@ -1,6 +1,6 @@
 with (import ./. { });
 let
-  hls-nix = (import sources.hls-nix { }).haskell-language-server;
+  hls-nix = (import sources.hls-nix { inherit pkgs; }).haskell-language-server;
   pre-commit-hooks = import sources."pre-commit-hooks.nix";
   pre-commit-config = {
     src = ./.;
