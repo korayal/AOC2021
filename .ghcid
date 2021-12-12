@@ -1,1 +1,1 @@
--a --command "cabal repl lib:aoc2021" --reload=ghcid.ghci --test ":script ghcid.ghci" -W
+-a --command "fish -c 'direnv exec . hpack; and direnv exec . cabal repl lib:aoc2021'" --reload=ghcid.ghci --test ":script ghcid.ghci" -W
