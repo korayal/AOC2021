@@ -42,8 +42,10 @@ default-extensions:
   - MultiWayIf
   - DerivingStrategies
   - TemplateHaskell
+  - TypeApplications
 
 dependencies:
+  - algebraic-graphs
   - attoparsec
   - base
   - base16-bytestring
@@ -56,6 +58,8 @@ dependencies:
   - directory
   - dlist
   - errors
+  - graphviz
+  - graphite
   - lens
   - matrix
   - matrix-lens
