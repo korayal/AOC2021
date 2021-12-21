@@ -5,15 +5,14 @@ module AOC2021.Day13 where
 --------------------------------------------------------------------------------
 
 import AOC2021.Prelude
+import Control.Lens
 import Data.Attoparsec.Text hiding (take)
-import qualified Data.Text.Lazy as LT
+import qualified Data.List as L
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
+import qualified Data.Text.Lazy as LT
 import qualified Data.Vector as V
-import qualified Data.List as L
-import Control.Lens
 import qualified GHC.Show as GS
-
 
 --------------------------------------------------------------------------------
 data Cell = C_Sharp | C_Dot deriving stock (Eq)
@@ -62,7 +61,6 @@ instructionP = do
   (I_X <$> (string "x=" >> decimal))
     <|> I_Y <$> (string "y=" >> decimal)
 
-
 t :: Parser (Paper, NonEmpty Instruction)
 t = do
   marks <- markP `sepBy` endOfLine
@@ -71,7 +69,7 @@ t = do
 
   let (xSize :: Int) = L.maximum (fst <$> marks) + 1
       (ySize :: Int) = L.maximum (snd <$> marks) + 1
-      xV = V.fromList (replicate xSize  C_Dot)
+      xV = V.fromList (replicate xSize C_Dot)
       v = foldl' (updateCell (const C_Sharp)) (Paper $ V.fromList (replicate ySize xV)) marks
 
   pure (v, fromMaybe (error "instructions can't be empty") $ nonEmpty instructions)
@@ -83,7 +81,7 @@ updateCell f (Paper mNew) (x, y) = Paper $ mNew & ix y . ix x %~ f
 foldPaper :: Paper -> Instruction -> Paper
 foldPaper pp@(Paper p) = \case
   I_X x -> transposePaper $ foldPaper (transposePaper pp) (I_Y x)
-  I_Y y -> slicePaper y $ foldl' (mergeRows y) pp $ (V.zip (V.fromList [1,2..yMax]) (bottomSlice y) :: V.Vector (Int, V.Vector Cell))
+  I_Y y -> slicePaper y $ foldl' (mergeRows y) pp $ (V.zip (V.fromList [1, 2 .. yMax]) (bottomSlice y) :: V.Vector (Int, V.Vector Cell))
   where
     yMax = length p - 1
     bottomSlice y = V.slice (y + 1) (yMax - y) p
@@ -95,7 +93,6 @@ foldPaper pp@(Paper p) = \case
     mergeRow C_Sharp _ = C_Sharp
     mergeRow _ C_Sharp = C_Sharp
     mergeRow a C_Dot = a
-
 
 answer1Pure :: (Paper, NonEmpty Instruction) -> Int
 answer1Pure (p, i) = sum . fmap (length . filter (== C_Sharp) . toList) . _unPaper $ foldPaper p (head i)
